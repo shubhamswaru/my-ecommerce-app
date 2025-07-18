@@ -1,4 +1,3 @@
-// src/app/products/[id]/page.tsx
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/lib/types';
