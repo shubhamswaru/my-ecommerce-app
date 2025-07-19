@@ -199,7 +199,7 @@ export async function generateStaticParams() {
 */
 
 // The function signature is simplified here
-export default async function ProductPage({ params }) {
+export default async function ProductPage({ params }: { params: { id: string } }) {
   const product = await getProduct(params.id);
 
   if (!product) {
