@@ -9,21 +9,19 @@ interface ProductPageProps {
   };
 }
 
-// Fetches data for a single product
 async function getProduct(id: string): Promise<Product | null> {
   try {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     if (!res.ok) {
-      return null; // Handle cases where product is not found (404)
+      return null; 
     }
     return res.json();
   } catch (error) {
     console.error(error);
-    return null; // Handle fetch errors
+    return null; 
   }
 }
 
-// Pre-builds all the product pages at build time for better performance
 export async function generateStaticParams() {
   const res = await fetch('https://fakestoreapi.com/products');
   const products: Product[] = await res.json();
@@ -33,31 +31,36 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
-  const product = await getProduct(params.id);
 
-  // If no product is found, show the 404 page
+export default async function ProductPage({ params: { id } }: ProductPageProps) {
+  const product = await getProduct(id);
+
   if (!product) {
     notFound();
   }
 
   return (
     <main className="container mx-auto p-4 mt-6">
-      <Link href="/" className="text-blue-500 hover:underline mb-6 block">&larr; Back to Products</Link>
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="relative w-full h-96">
+      <Link href="/" className="text-blue-400 hover:text-blue-300 transition-colors mb-6 block">
+        &larr; Back to Products
+      </Link>
+      <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="relative w-full h-96 bg-white rounded-lg">
           <Image
             src={product.image}
             alt={product.title}
             fill
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', padding: '1rem' }}
           />
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center text-white">
           <h1 className="text-3xl lg:text-4xl font-bold mb-2">{product.title}</h1>
-          <p className="text-lg text-gray-500 capitalize mb-4">{product.category}</p>
-          <p className="text-gray-700 mb-4 leading-relaxed">{product.description}</p>
-          <p className="text-3xl font-extrabold text-gray-900">${product.price.toFixed(2)}</p>
+          
+          <p className="text-lg text-gray-400 capitalize mb-4">{product.category}</p>
+          
+          <p className="text-gray-300 mb-6 leading-relaxed">{product.description}</p>
+          
+          <p className="text-4xl font-extrabold text-white">${product.price.toFixed(2)}</p>
         </div>
       </div>
     </main>
