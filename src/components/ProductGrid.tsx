@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+//import { useState, useMemo } from 'react';
 import { Product } from '@/lib/types';
 import ProductCard from './ProductCard';
 import { motion } from 'framer-motion';
@@ -58,7 +59,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
   }, [products, selectedCategory, sortOrder, searchTerm]);
 
   
-  useMemo(() => {
+  useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, sortOrder, searchTerm]);
 
