@@ -1,4 +1,4 @@
-import Link from 'next/link';
+mport Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/lib/types';
 import { notFound } from 'next/navigation';
