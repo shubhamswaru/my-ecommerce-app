@@ -287,7 +287,8 @@ async function getProduct(id: string): Promise<Product | null> {
 
 // Correctly typed Page function
 export default async function ProductPage({ params }: { params: any }) {
-  const product = await getProduct(params.id);
+  const { id } = await params;
+  const product = await getProduct(id); 
 
   if (!product) {
     notFound();
