@@ -276,21 +276,21 @@ async function getProduct(id: string): Promise<Product | null> {
 }
 
 
-type ProductPageProps = {
-  params: {
-    id: string;
-  };
-};
+// type ProductPageProps = {
+//   params: {
+//     id: string;
+//   };
+// };
 
 
 
 
 // Correctly typed Page function
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params }: { params: any }) {
   const product = await getProduct(params.id);
 
   if (!product) {
-    notFound(); // Triggers 404 page
+    notFound();
   }
 
   return (
