@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce Showcase Project
 
-## Getting Started
+A modern, responsive e-commerce front-end application built with Next.js, TypeScript, and Tailwind CSS. It features a product catalog fetched from the FakeStore API with advanced filtering, sorting, searching, and pagination capabilities.
 
-First, run the development server:
+**Live Site:** [https://your-vercel-link.vercel.app/](https://my-ecommerce-app-36ij-ojm5771vz-shubhamswarus-projects.vercel.app/)  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
+* **Product Catalog:** Fetches and displays a grid of products.
+* **Dynamic Product Pages:** Detailed view for each individual product.
+* **Loading Skeletons:** Professional loading state for a better user experience.
+* **Search:** Instantly filter products by title.
+* **Filtering:** Filter products by category.
+* **Sorting:** Sort products by price or name.
+* **Pagination:** Client-side pagination to handle a large number of products.
+* **Animations:** Staggered grid animation on load using Framer Motion.
+* **Responsive Design:** Fully responsive layout for mobile, tablet, and desktop.
+* **Unit Tested:** Key components are tested with Jest and React Testing Library.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Framework:** Next.js 15 (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion
+* **Testing:** Jest & React Testing Library
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+To get a local copy up and running, follow these simple steps.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You need to have Node.js (version 18 or later) and npm installed on your machine.
 
-## Deploy on Vercel
+### Installation & Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/shubhamswaru/my-ecommerce-app.git](https://github.com/your-username/your-repo-name.git)
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd my-ecommerce-app
+    ```
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5.  **Run tests:**
+    ```bash
+    npm test
+    ```
+
+## 📂 Project Structure
+
+The project uses the `src` directory to keep the source code organized and separated from configuration files.
+
+-   `src/app/`: Contains all pages, layouts, and loading states for the App Router.
+    -   `page.tsx`: The main product listing page.
+    -   `products/[id]/page.tsx`: The dynamic page for a single product.
+    -   `layout.tsx`: The root layout containing the Header and Footer.
+    -   `loading.tsx`: The loading skeleton UI for the main page.
+-   `src/components/`: Contains all reusable React components (`ProductCard`, `Header`, `ProductGrid`, etc.).
+-   `src/lib/`: Contains helper code, primarily `types.ts` for TypeScript definitions.
+-   `src/components/__tests__/`: Contains unit tests for the components.
+
+## 🏗️ Architectural Decisions
+
+### Data Fetching Strategy
+
+This project primarily uses **Static Site Generation (SSG)**. The `fetch` API is used within async Server Components, which Next.js caches by default.
+
+**Justification:** The product data from the FakeStore API is static and does not change frequently. Pre-rendering all pages at build time provides several key advantages:
+* **Performance:** Pages are served as static HTML, resulting in the fastest possible load times for users.
+* **SEO:** Search engines can easily crawl and index the pre-rendered content.
+* **Reliability:** The site remains available even if the source API is temporarily down.
+
+### Styling
+
+**Tailwind CSS** was chosen for styling. Its utility-first approach allows for rapid development, consistent design implementation, and easy creation of a responsive layout directly within the component markup. A custom theme (colors, fonts) was configured in `tailwind.config.js` to create a unique visual identity.
