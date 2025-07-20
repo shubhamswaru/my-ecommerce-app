@@ -37,7 +37,7 @@ You need to have Node.js (version 18 or later) and npm installed on your machine
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/shubhamswaru/my-ecommerce-app.git]
+    git clone https://github.com/shubhamswaru/my-ecommerce-app.git
     ```
 2.  **Navigate to the project directory:**
     ```bash
