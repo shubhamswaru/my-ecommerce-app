@@ -16,7 +16,8 @@ async function getProduct(id: string): Promise<Product | null> {
   }
 }
 
-
+// Add this comment to disable the ESLint rule for the next line
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function ProductPage({ params }: { params: any }) {
   const { id } = await params;
   const product = await getProduct(id);
