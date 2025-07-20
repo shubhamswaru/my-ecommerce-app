@@ -2,7 +2,7 @@
 
 A modern, responsive e-commerce front-end application built with Next.js, TypeScript, and Tailwind CSS. It features a product catalog fetched from the FakeStore API with advanced filtering, sorting, searching, and pagination capabilities.
 
-**Live Site:** [https://your-vercel-link.vercel.app/](https://my-ecommerce-app-36ij-ojm5771vz-shubhamswarus-projects.vercel.app/)  
+**Live Site:** (https://my-ecommerce-app-36ij-ojm5771vz-shubhamswarus-projects.vercel.app/)  
 
 
 ## ✨ Features
@@ -37,7 +37,7 @@ You need to have Node.js (version 18 or later) and npm installed on your machine
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/shubhamswaru/my-ecommerce-app.git](https://github.com/your-username/your-repo-name.git)
+    git clone [https://github.com/shubhamswaru/my-ecommerce-app.git]
     ```
 2.  **Navigate to the project directory:**
     ```bash
